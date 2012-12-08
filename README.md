@@ -49,6 +49,7 @@ TODOs
 -----
  * Get rid of too many global variables in the driver part
  * Export logs
+ * Maybe some script interface
 
 License
 -------

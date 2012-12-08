@@ -53,18 +53,11 @@
             
             NSString* string = [[[pbis objectAtIndex:0] stringForType:@"public.utf8-plain-text"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             
-            //NSLog(@"trimmed: '%@'", string);
-
             NSArray* lines = [string componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@";\r\n"]];
-            
-            //NSLog(@"lines: %ld", lines.count);
             
             for (NSString* line in lines)
             {
                 NSArray* numbers = [line componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                
-                //NSLog(@"numbers: %ld", numbers.count);
-                
                 if(numbers.count > 0 && numbers.count < 10 && line.length > 0)
                 {
                     CanMsg* msg = malloc(sizeof(CanMsg));
