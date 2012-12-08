@@ -3,7 +3,7 @@ PeakLog - OSX user-space driver for PCAN-USB adapters
 
 Description
 -----------
-User-space driver using IOKitLib and IOUSBLib for PEAK PCAN-USB CAN to USB Adapters.
+User-space driver using IOKitLib and IOUSBLib for PEAK PCAN-USB Adapters.
 Based on USBPrivateDataSample and the pcan linux driver.
 
 Supported hardware
@@ -12,7 +12,7 @@ Supported hardware
 
 Pasting CAN-Messages
 --------------------
-You can simply paste numbers into the log window, which will be translated into can-frames and sent over the bus. This has been tested with plain text, formatted text and from *Numbers* spreadsheets.
+You can simply paste numbers into the log window, which will be translated into can-frames and sent over the bus. This has been tested with plain text, formatted text and *Numbers* spreadsheets.
 
 For example:
 
