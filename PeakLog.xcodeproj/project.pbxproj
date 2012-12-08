@@ -11,7 +11,6 @@
 		9441E3C916600F2E00F0C02F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9441E3C816600F2E00F0C02F /* Cocoa.framework */; };
 		9441E3D316600F2E00F0C02F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9441E3D116600F2E00F0C02F /* InfoPlist.strings */; };
 		9441E3D516600F2E00F0C02F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9441E3D416600F2E00F0C02F /* main.m */; };
-		9441E3D916600F2E00F0C02F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9441E3D716600F2E00F0C02F /* Credits.rtf */; };
 		9441E3DC16600F2E00F0C02F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9441E3DB16600F2E00F0C02F /* AppDelegate.m */; };
 		9441E3DF16600F2E00F0C02F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9441E3DD16600F2E00F0C02F /* MainMenu.xib */; };
 		9441E3EA1660F57600F0C02F /* PeakUSBUserspaceDriver.c in Sources */ = {isa = PBXBuildFile; fileRef = 9441E3E91660F57600F0C02F /* PeakUSBUserspaceDriver.c */; };
@@ -29,7 +28,6 @@
 		9441E3D216600F2E00F0C02F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9441E3D416600F2E00F0C02F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9441E3D616600F2E00F0C02F /* PeakLog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PeakLog-Prefix.pch"; sourceTree = "<group>"; };
-		9441E3D816600F2E00F0C02F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		9441E3DA16600F2E00F0C02F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9441E3DB16600F2E00F0C02F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9441E3DE16600F2E00F0C02F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 				9441E3D116600F2E00F0C02F /* InfoPlist.strings */,
 				9441E3D416600F2E00F0C02F /* main.m */,
 				9441E3D616600F2E00F0C02F /* PeakLog-Prefix.pch */,
-				9441E3D716600F2E00F0C02F /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -161,7 +158,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9441E3D316600F2E00F0C02F /* InfoPlist.strings in Resources */,
-				9441E3D916600F2E00F0C02F /* Credits.rtf in Resources */,
 				9441E3DF16600F2E00F0C02F /* MainMenu.xib in Resources */,
 				945F0A631673B758003B5B6E /* README.md in Resources */,
 			);
@@ -190,14 +186,6 @@
 				9441E3D216600F2E00F0C02F /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9441E3D716600F2E00F0C02F /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9441E3D816600F2E00F0C02F /* en */,
-			);
-			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 		9441E3DD16600F2E00F0C02F /* MainMenu.xib */ = {
