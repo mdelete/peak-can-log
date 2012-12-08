@@ -1,4 +1,51 @@
-peak-log
-========
+PeakLog - OSX user-space driver for PCAN-USB CAN Adapters
+=========================================================
 
-OSX user-space driver for PCAN-USB CAN Adapters
+Description
+-----------
+User-space driver using IOKitLib and IOUSBLib for PEAK PCAN-USB CAN to USB Adapters.
+Based on USBPrivateDataSample and the pcan linux driver.
+
+License
+-------
+Copyright (c) 2012 Marc Delling
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+Pasting CAN-Messages
+--------------------
+You can simply paste numbers into the log window, which will be translated into can-frames and sent over the bus. This has been tested with plain text, formatted text and from *Numbers* spreadsheets.
+
+For example:
+
+    0x80000005 0xc0 0xff 0xee;
+
+will send an *CAN2.0B* frame with identfier *5* and the trailing numbers as payload bytes. The frame-length will be automatically set to *3*.
+
+You can paste multiple messages at once, number columns must be in different rows (*Numbers*) or separated by newline or semicolon.
+
+For example
+
+    0x5 0xc0 0xff 0xee;
+    0x13 0xba 0xbe;
+
+You can also paste RTR-frames by ANDing the id you expect to answer with 0x40000000. Though essentially wrong, this might work. RTR-frames should have a length field set stating the length of data you expect to receive. You can do this by appending dummy nummers (e.g. zeroes):
+
+    0x40000006 0 0
+    
+Sending RTR-frame to id 6 expecting two bytes in return
+
+
+    0x80000000: set EXT flag
+    0x40000000: set RTR flag
+    0xC0000000: set both flags
+
+Changelog
+---------
+ * 2012-12-05 Initial commit
+
