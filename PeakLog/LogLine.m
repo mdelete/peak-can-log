@@ -151,7 +151,7 @@
 
 - (NSString *)flags
 {
-    NSMutableString* flags = [[NSMutableString alloc] init];
+    NSMutableString* flags = [[NSMutableString alloc] initWithCapacity:16];
     if(_msg->err)
         [flags appendString:@"|Err"];
     if(_msg->rtr)
