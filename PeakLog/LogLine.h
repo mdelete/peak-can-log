@@ -9,14 +9,24 @@
 
 #include "PeakUSB.h"
 
+#pragma mark - Formatter classes
+
+@interface TimestampFormatter : NSFormatter
+@end
+
+@interface CanidFormatter : NSFormatter
+@end
+
+#pragma mark - The log message
+
 @interface LogLine : NSObject
 
-@property (retain) NSString *timestamp;
-@property (retain) NSString *flags;
-@property (retain) NSString *canid;
-@property (retain) NSNumber *length;
-@property (retain) NSString *data;
-@property (retain) NSString *datadescr;
+@property (readonly) NSNumber *timestamp;
+@property (readonly) NSString *flags;
+@property (readonly) NSNumber *canid;
+@property (readonly) NSNumber *length;
+@property (readonly) NSString *data;
+@property (readonly) NSString *datadescr;
 
 - (id)initWithMessage:(CanMsg*)msg;
 

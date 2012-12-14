@@ -27,6 +27,9 @@
 #include "PeakUSB.h"
 
 @implementation AppDelegate
+{
+    NSUInteger arrayControllerMaxSize;
+}
 
 @synthesize arrayController, bitratePopup;
 
@@ -39,6 +42,17 @@
 {
     NSRange range = NSMakeRange(0, [[arrayController arrangedObjects] count]);
     [arrayController removeObjectsAtArrangedObjectIndexes:[NSIndexSet indexSetWithIndexesInRange:range]];
+}
+
+- (IBAction)trimLog:(id)sender
+{
+    NSUInteger size = [[arrayController arrangedObjects] count];
+    NSInteger oversize = size - arrayControllerMaxSize;
+    if(oversize > 0)
+    {
+        NSRange range = NSMakeRange(0, oversize);
+        [arrayController removeObjectsAtArrangedObjectIndexes:[NSIndexSet indexSetWithIndexesInRange:range]];
+    }
 }
 
 - (IBAction)pasteCanMessage:(id)sender
@@ -84,8 +98,8 @@
                         }
                     }
                     gettimeofday(&msg->ts, NULL);
-                    [self appendMsg:msg];
                     PeakSend(msg);
+                    [self appendMsg:msg];
                 }
             }
         }
@@ -95,7 +109,15 @@
 - (void)appendMsg:(CanMsg*)msg
 {
     LogLine *logLine = [[LogLine alloc] initWithMessage:msg];
-    [arrayController addObject:logLine];
+    
+    if(!arrayController.filterPredicate || (arrayController.filterPredicate && [arrayController.filterPredicate evaluateWithObject:logLine])) {
+        [arrayController addObject:logLine];
+    }
+    
+    if([[arrayController arrangedObjects] count] > arrayControllerMaxSize)
+    {
+        [arrayController removeObjectAtArrangedObjectIndex:0];
+    }
 }
 
 void notificationCallback (CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
@@ -131,6 +153,10 @@ void notificationCallback (CFNotificationCenterRef center, void *observer, CFStr
     [[bitratePopup itemAtIndex:1] setEnabled:NO];
     [[bitratePopup itemAtIndex:2] setEnabled:NO];
     [bitratePopup setAutoenablesItems:NO];
+    
+    [arrayController setClearsFilterPredicateOnInsertion:NO];
+    arrayControllerMaxSize = 1000;
+    [arrayController setFilterPredicate:[NSPredicate predicateWithFormat:@"length >= 0 OR canid >= 0"]];
     
     CFNotificationCenterAddObserver(CFNotificationCenterGetLocalCenter(), (__bridge const void *)(self), notificationCallback, NULL, NULL, CFNotificationSuspensionBehaviorHold);
         
