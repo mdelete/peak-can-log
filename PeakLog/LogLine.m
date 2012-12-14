@@ -7,7 +7,7 @@
 
 #import "LogLine.h"
 
-#pragma mark - Formatter classes
+#pragma mark - TimestampFormatter class
 
 @implementation TimestampFormatter
 
@@ -50,6 +50,7 @@
 
 @end
 
+#pragma mark - CanidFormatter class
 
 @implementation CanidFormatter
 
@@ -92,7 +93,7 @@
 
 @end
 
-#pragma mark - The log message
+#pragma mark - LogLine class
 
 @implementation LogLine
 {
