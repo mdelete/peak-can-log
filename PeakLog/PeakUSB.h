@@ -101,7 +101,12 @@ typedef struct {
     UInt8 err:1; // Error frame if 1
     UInt8 loc:1; // Origin of frame: 0 = CAN-Bus, 1 = PeakLog
     UInt8 len:4; // Length of data (0-8 bytes)
-    UInt8 data[8];
+    union {
+        UInt8 data[8];
+        UInt16 sdata[4];
+        UInt32 idata[2];
+        UInt64 ldata;
+    };
 } CanMsg;
 
 // The adapted usb ctrl structure (the ctrl pipes are 16 bytes)
