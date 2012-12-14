@@ -813,6 +813,8 @@ void DeviceAdded(void *refCon, io_iterator_t iterator)
 IOReturn PeakSend(CanMsg* msg)
 {
     int i;
+    CanId tc;
+    tc.ul = msg->canid.ul;
     bzero(gBufferSend, sizeof(gBufferSend));
     UInt8* ucMsgPtr = (UInt8*)&gBufferSend[0];
     
@@ -830,17 +832,17 @@ IOReturn PeakSend(CanMsg* msg)
     if (msg->ext)
     {
         *pucStatusLen |= STLN_EXTENDED_ID;
-        msg->canid.ul <<= 3;
-        *ucMsgPtr++ = msg->canid.uc[0];
-        *ucMsgPtr++ = msg->canid.uc[1];
-        *ucMsgPtr++ = msg->canid.uc[2];
-        *ucMsgPtr++ = msg->canid.uc[3];
+        tc.ul <<= 3;
+        *ucMsgPtr++ = tc.uc[0];
+        *ucMsgPtr++ = tc.uc[1];
+        *ucMsgPtr++ = tc.uc[2];
+        *ucMsgPtr++ = tc.uc[3];
     }
     else
     {
-        msg->canid.ul <<= 5;
-        *ucMsgPtr++ = msg->canid.uc[0];
-        *ucMsgPtr++ = msg->canid.uc[1];
+        tc.ul <<= 5;
+        *ucMsgPtr++ = tc.uc[0];
+        *ucMsgPtr++ = tc.uc[1];
     }
     
     if (!msg->rtr)
