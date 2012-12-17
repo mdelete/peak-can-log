@@ -2,7 +2,7 @@
 //  LogLine.m
 //  PeakLog
 //
-//  Created by Marc Delling on 03.12.12.
+//  Copyright © 2012 by Marc Delling on 03.12.12.
 //
 
 #import "LogLine.h"
@@ -46,6 +46,102 @@
             *obj = [NSNumber numberWithLongLong:ts];
     }
     return (obj != nil);
+}
+
+@end
+
+#pragma mark - CanopenPredicateEditorRowTemplate
+
+@implementation CanopenPredicateEditorRowTemplate
+
+-(NSPopUpButton *)keypathPopUp
+{
+	if(!keypathPopUp)
+	{
+		NSMenu *keypathMenu = [[NSMenu allocWithZone:[NSMenu menuZone]] initWithTitle:@"keypath menu"];
+        
+		NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:@"CanOpen Message Type" action:nil keyEquivalent:@""];
+		[menuItem setRepresentedObject:[NSExpression expressionForKeyPath:@"canid"]];
+		[menuItem setEnabled:YES];
+        
+		[keypathMenu addItem:menuItem];
+        
+		keypathPopUp = [[NSPopUpButton alloc] initWithFrame:NSZeroRect pullsDown:NO];
+		[keypathPopUp setMenu:keypathMenu];
+	}
+    
+	return keypathPopUp;
+}
+
+-(NSPopUpButton *)typePopUp
+{
+	if(!typePopUp)
+	{
+		NSMenu *typeMenu = [[NSMenu allocWithZone:[NSMenu menuZone]] initWithTitle:@"type menu"];
+        
+		NSMenuItem *nmtItem = [[NSMenuItem alloc] initWithTitle:@"NMT" action:nil keyEquivalent:@""];
+		[nmtItem setEnabled:YES];
+		[nmtItem setTag:0];
+        
+		NSMenuItem *emergItem = [[NSMenuItem alloc] initWithTitle:@"EMERG" action:nil keyEquivalent:@""];
+		[emergItem setEnabled:YES];
+		[emergItem setTag:1];
+        
+        NSMenuItem *pdoItem = [[NSMenuItem alloc] initWithTitle:@"PDO" action:nil keyEquivalent:@""];
+		[pdoItem setEnabled:YES];
+		[pdoItem setTag:2];
+        
+        NSMenuItem *sdoItem = [[NSMenuItem alloc] initWithTitle:@"SDO" action:nil keyEquivalent:@""];
+		[sdoItem setEnabled:YES];
+		[sdoItem setTag:3];
+        
+        NSMenuItem *heartbeatItem = [[NSMenuItem alloc] initWithTitle:@"HEARTBEAT" action:nil keyEquivalent:@""];
+		[heartbeatItem setEnabled:YES];
+		[heartbeatItem setTag:4];
+        
+        NSMenuItem *lssItem = [[NSMenuItem alloc] initWithTitle:@"LSS" action:nil keyEquivalent:@""];
+		[lssItem setEnabled:YES];
+		[lssItem setTag:5];
+        
+		[typeMenu addItem:nmtItem];
+		[typeMenu addItem:emergItem];
+        [typeMenu addItem:pdoItem];
+        [typeMenu addItem:sdoItem];
+        [typeMenu addItem:heartbeatItem];
+        [typeMenu addItem:lssItem];
+        
+		typePopUp = [[NSPopUpButton alloc] initWithFrame:NSZeroRect pullsDown:NO];
+		[typePopUp setMenu:typeMenu];
+	}
+    
+	return typePopUp;
+}
+
+-(NSArray *)templateViews
+{
+	return [NSArray arrayWithObjects:[self keypathPopUp], [self typePopUp], nil];
+}
+
+-(void) setPredicate:(NSPredicate *)predicate
+{
+	id rightValue = [[(NSComparisonPredicate *)predicate rightExpression] constantValue];
+	if([rightValue isKindOfClass:[NSNumber class]])
+		[[self typePopUp] selectItemWithTag:[rightValue integerValue]];
+}
+
+-(NSPredicate *)predicateWithSubpredicates:(NSArray *) subpredicates
+{    
+    int min = 0, max = 0;
+    switch ([[self typePopUp] selectedTag]) {
+        case 0: min = 0, max = 128; break; // MNT
+        case 1: min = 129, max = 254; break; // EMERG
+        case 2: min = 385, max = 1279; break; // PDO
+        case 3: min = 1409, max = 1663; break; // SDO
+        case 4: min = 1793, max = 1919; break; // HEARTBEAT
+        case 5: min = 2020, max = 2021; break; // LSS
+        default: break;
+    }
+    return [NSPredicate predicateWithFormat:@"canid >= %d AND canid <= %d", min, max];
 }
 
 @end
