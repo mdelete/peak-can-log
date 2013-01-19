@@ -37,7 +37,7 @@ will send a *CAN2.0B* frame with id *5* and three bytes payload.
 
 ### Sending RTR-frames
 
-You can also paste RTR-frames by OR-ing the id you expect to answer with 0x40000000. Though essentially wrong, this might work. RTR-frames should have a length field set stating the length of data you expect to receive. You can do this by appending dummy nummers (e.g. zeroes). For example:
+You can also paste RTR-frames by OR-ing the id you expect to answer with 0x40000000. RTR-frames should have a length field set stating the length of data you expect to receive. You can do this by appending dummy numbers (e.g. zeroes). For example:
 
     0x40000006 0 0
     
