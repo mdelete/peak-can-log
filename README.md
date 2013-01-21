@@ -3,7 +3,7 @@ PeakLog - OSX user-space driver for PCAN-USB adapters
 
 Description
 -----------
-CAN-Logger with user-space driver using IOKitLib and IOUSBLib for PEAK PCAN-USB Adapters.
+Simple CAN-logger with user-space driver using IOKitLib and IOUSBLib for PEAK PCAN-USB Adapters.
 The driver is based on the USBPrivateDataSample and the pcan linux driver.
 
 Supported hardware
