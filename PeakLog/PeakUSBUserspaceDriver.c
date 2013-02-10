@@ -62,7 +62,7 @@ static void calcTimevalFromTicks(struct timeval *tv)
 	llx *= PCAN_USB_TS_US_PER_TICK;
 	llx >>= PCAN_USB_TS_DIV_SHIFTER;
 
-	nb_s = llx / 1000000;
+	nb_s = (UInt32) llx / 1000000;
 	nb_us = (UInt32)((UInt64)llx - (nb_s * 1000000));
 	
 	tv->tv_usec = t->StartTime.tv_usec + nb_us;
@@ -624,13 +624,6 @@ IOReturn FindInterfaces(IOUSBDeviceInterface **device)
         CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, kCFRunLoopDefaultMode);
         printf("Asynchronous event source added to run loop\n");
         
-        // set canoff
-        // set sja1000init
-        // set bitrate
-        // set cansilentoff
-        // set extvccoff
-        // set canon
-        
         // set interface before init
         gInterface = interface;
         
@@ -647,8 +640,6 @@ IOReturn FindInterfaces(IOUSBDeviceInterface **device)
         ReadFromCtrlPipe(interface, PCAN_CTRL_READ_QUARTZ);
         ReadFromCtrlPipe(interface, PCAN_CTRL_READ_DEVICENO);
         ReadFromCtrlPipe(interface, PCAN_CTRL_READ_BITRATE);
-        
-        //usleep(50);
         
         ReadFromBulkPipe(interface); // start reading from the bulk input interface
         
@@ -733,7 +724,7 @@ void DeviceAdded(void *refCon, io_iterator_t iterator)
         // Get the USB device's name.
         kr = IORegistryEntryGetName(usbDevice, deviceName);
         
-		if (KERN_SUCCESS != kr)
+        if (KERN_SUCCESS != kr)
         {
             deviceName[0] = '\0';
         }
