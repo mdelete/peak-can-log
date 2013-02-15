@@ -39,16 +39,19 @@ typedef struct MyPrivateData {
     CFStringRef				deviceName;
 } MyPrivateData;
 
+static CFNotificationCenterRef      gNotificationCenter = NULL;
 static IONotificationPortRef        gNotifyPort;
 static io_iterator_t                gAddedIter;
 static CFRunLoopRef                 gRunLoop;
+
+//FIXME put into MyPrivateData, if feasible
 static char                         gBufferReceive[64], gBufferSend[64];
 static UInt8                        gTelegramCount;
 static int                          gMsgCounter = 0;
 static time_t                       gLast = 0;
-static CFNotificationCenterRef      gNotificationCenter = NULL;
 static IOUSBInterfaceInterface**    gInterface = NULL;
 static PCAN_USB_TIME                gUsbTime;
+static UInt16                       gLastBitrate = CAN_BAUD_125K;
 
 #pragma mark - Timestamp magic
 
@@ -390,6 +393,8 @@ void ReadFromBulkPipe(IOUSBInterfaceInterface **interface)
 
 IOReturn PeakInit(UInt16 bitrate)
 {
+    gLastBitrate = bitrate;
+    
     if(gInterface == NULL)
         return kIOReturnNoDevice;
     
@@ -627,7 +632,7 @@ IOReturn FindInterfaces(IOUSBDeviceInterface **device)
         // set interface before init
         gInterface = interface;
         
-        kr = PeakInit(CAN_BAUD_125K);
+        kr = PeakInit(gLastBitrate);
         
         if (kr != kIOReturnSuccess)
         {
