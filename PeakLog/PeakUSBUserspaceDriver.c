@@ -185,7 +185,7 @@ void DecodeMessages()
                 updateTimeStampFromByte(msg, *ucMsgPtr++);
             }
 #ifdef DEBUG
-            printf("Timestamp:%d Id:0x%02x Len:%d Rtr:%s Ext:%s\n", msg->ts, (unsigned)msg->canid.ul, msg->len, (msg->rtr) ? "yes" : "no", (msg->ext) ? "yes" : "no");
+            printf("Timestamp:%lu Id:0x%02x Len:%d Rtr:%s Ext:%s\n", (unsigned long)msg->ts.tv_sec, (unsigned)msg->canid.ul, msg->len, (msg->rtr) ? "yes" : "no", (msg->ext) ? "yes" : "no");
 #endif
             for(j = 0; j < msg->len; j++)
                 msg->data[j] = *ucMsgPtr++;
