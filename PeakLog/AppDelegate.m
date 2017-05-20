@@ -75,7 +75,7 @@
                 if(numbers.count > 0 && numbers.count < 10 && line.length > 0)
                 {
                     CanMsg* msg = malloc(sizeof(CanMsg));
-                    bzero(msg, sizeof(msg));
+                    bzero(msg, sizeof(CanMsg));
                     msg->len = (UInt8) numbers.count-1;
                     msg->loc = 1;
                     for(int i = 0; i < numbers.count; i++)

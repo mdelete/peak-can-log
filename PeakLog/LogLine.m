@@ -82,32 +82,31 @@
 		NSMenuItem *nmtItem = [[NSMenuItem alloc] initWithTitle:@"NMT" action:nil keyEquivalent:@""];
 		[nmtItem setEnabled:YES];
 		[nmtItem setTag:0];
+        [typeMenu addItem:nmtItem];
         
 		NSMenuItem *emergItem = [[NSMenuItem alloc] initWithTitle:@"EMERG" action:nil keyEquivalent:@""];
 		[emergItem setEnabled:YES];
 		[emergItem setTag:1];
+        [typeMenu addItem:emergItem];
         
         NSMenuItem *pdoItem = [[NSMenuItem alloc] initWithTitle:@"PDO" action:nil keyEquivalent:@""];
 		[pdoItem setEnabled:YES];
 		[pdoItem setTag:2];
+        [typeMenu addItem:pdoItem];
         
         NSMenuItem *sdoItem = [[NSMenuItem alloc] initWithTitle:@"SDO" action:nil keyEquivalent:@""];
 		[sdoItem setEnabled:YES];
 		[sdoItem setTag:3];
+        [typeMenu addItem:sdoItem];
         
         NSMenuItem *heartbeatItem = [[NSMenuItem alloc] initWithTitle:@"HEARTBEAT" action:nil keyEquivalent:@""];
 		[heartbeatItem setEnabled:YES];
 		[heartbeatItem setTag:4];
+        [typeMenu addItem:heartbeatItem];
         
         NSMenuItem *lssItem = [[NSMenuItem alloc] initWithTitle:@"LSS" action:nil keyEquivalent:@""];
 		[lssItem setEnabled:YES];
 		[lssItem setTag:5];
-        
-		[typeMenu addItem:nmtItem];
-		[typeMenu addItem:emergItem];
-        [typeMenu addItem:pdoItem];
-        [typeMenu addItem:sdoItem];
-        [typeMenu addItem:heartbeatItem];
         [typeMenu addItem:lssItem];
         
 		typePopUp = [[NSPopUpButton alloc] initWithFrame:NSZeroRect pullsDown:NO];
