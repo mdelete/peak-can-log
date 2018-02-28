@@ -141,8 +141,8 @@ static const PCAN_USB_PARAM PCAN_CTRL_READ_DEVICENO = { 4, 1, { 0, 0, 0, 0, 0, 0
 static const PCAN_USB_PARAM PCAN_CTRL_READ_SNR = { 6, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
 
 IOReturn PeakInit(UInt16 bitrate);
-IOReturn PeakStart();
-IOReturn PeakStop();
+IOReturn PeakStart(void);
+IOReturn PeakStop(void);
 IOReturn PeakSend(CanMsg* msg);
 
 #endif

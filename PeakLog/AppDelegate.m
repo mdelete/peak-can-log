@@ -124,21 +124,25 @@ void notificationCallback (CFNotificationCenterRef center, void *observer, CFStr
 {
     AppDelegate* refToSelf = (__bridge AppDelegate *)(observer);
     
-    if(CFStringCompare(name, CFSTR("CanMsg"), 0) == 0) {
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        
+        if(CFStringCompare(name, CFSTR("CanMsg"), 0) == 0) {
+            
             [refToSelf appendMsg:(CanMsg*)object];
-        });
-    }
-    else if(CFStringCompare(name, CFSTR("CanDevice"), 0) == 0) {
-        if(object) {
-            refToSelf.statusText.title = [NSString stringWithFormat:@"%d/sec", *(int*)object];
-        } else {
-            refToSelf.statusText.title = @"No device";
+            
         }
-    }
-    else if(CFStringCompare(name, CFSTR("CanStatus"), 0) == 0) {
-        //NSLog(@"%@", name);
-    }
+        else if(CFStringCompare(name, CFSTR("CanDevice"), 0) == 0) {
+            if(object) {
+                refToSelf.statusText.title = [NSString stringWithFormat:@"%d/sec", *(int*)object];
+            } else {
+                refToSelf.statusText.title = @"No device";
+            }
+        }
+        else if(CFStringCompare(name, CFSTR("CanStatus"), 0) == 0) {
+            //NSLog(@"%@", name);
+        }
+        
+    });
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification

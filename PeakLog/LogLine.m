@@ -132,12 +132,12 @@
 {    
     int min = 0, max = 0;
     switch ([[self typePopUp] selectedTag]) {
-        case 0: min = 0, max = 128; break; // MNT
-        case 1: min = 129, max = 254; break; // EMERG
-        case 2: min = 385, max = 1279; break; // PDO
-        case 3: min = 1409, max = 1663; break; // SDO
-        case 4: min = 1793, max = 1919; break; // HEARTBEAT
-        case 5: min = 2020, max = 2021; break; // LSS
+        case 0: min = 0; max = 128; break; // MNT
+        case 1: min = 129; max = 254; break; // EMERG
+        case 2: min = 385; max = 1279; break; // PDO
+        case 3: min = 1409; max = 1663; break; // SDO
+        case 4: min = 1793; max = 1919; break; // HEARTBEAT
+        case 5: min = 2020; max = 2021; break; // LSS
         default: break;
     }
     return [NSPredicate predicateWithFormat:@"canid >= %d AND canid <= %d", min, max];

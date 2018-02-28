@@ -877,10 +877,10 @@ IOReturn PeakStart()
     CFRunLoopSourceRef		runLoopSource;
     CFNumberRef				numberRef;
     kern_return_t			kr;
-    long					usbVendor = kPeakVendorID;
-    long					usbProduct = kPeakProductID;
+    SInt32					usbVendor = kPeakVendorID;
+    SInt32					usbProduct = kPeakProductID;
     
-    fprintf(stderr, "Looking for devices matching vendor ID=%ld and product ID=%ld.\n", usbVendor, usbProduct);
+    fprintf(stderr, "Looking for devices matching vendor ID=%d and product ID=%d.\n", (int)usbVendor, usbProduct);
     
     // Set up the matching criteria for the devices we're interested in. The matching criteria needs to follow
     // the same rules as kernel drivers: mainly it needs to follow the USB Common Class Specification, pp. 6-7.
