@@ -16,9 +16,11 @@ profile
 *.moved-aside
 DerivedData
 .idea/
+<<<<<<< HEAD
 *.hmap
 *.xccheckout
 Pods
 Podfile.lock
 #node.js
 node_modules
+Pods
