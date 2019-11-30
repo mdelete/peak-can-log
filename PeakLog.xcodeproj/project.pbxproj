@@ -32,11 +32,11 @@
 		9441E3D616600F2E00F0C02F /* PeakLog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PeakLog-Prefix.pch"; sourceTree = "<group>"; };
 		9441E3DA16600F2E00F0C02F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9441E3DB16600F2E00F0C02F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9441E3DE16600F2E00F0C02F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9441E3E81660F57600F0C02F /* PeakUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeakUSB.h; sourceTree = "<group>"; };
 		9441E3E91660F57600F0C02F /* PeakUSBUserspaceDriver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PeakUSBUserspaceDriver.c; sourceTree = "<group>"; };
 		9441E3EB1660F66B00F0C02F /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		9441E3ED1660F67200F0C02F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		944F06602391F43100CFF4F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		945F0A621673B758003B5B6E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -135,12 +135,12 @@
 		9441E3BB16600F2E00F0C02F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Delling Heavy Industries";
 			};
 			buildConfigurationList = 9441E3BE16600F2E00F0C02F /* Build configuration list for PBXProject "PeakLog" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -195,7 +195,7 @@
 		9441E3DD16600F2E00F0C02F /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9441E3DE16600F2E00F0C02F /* en */,
+				944F06602391F43100CFF4F0 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -297,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PeakLog/PeakLog-Prefix.pch";
@@ -311,6 +312,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PeakLog/PeakLog-Prefix.pch";
