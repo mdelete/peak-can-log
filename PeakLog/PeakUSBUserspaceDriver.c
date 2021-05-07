@@ -137,7 +137,7 @@ static void updateTimeStampFromByte(CanMsg* msg, UInt8 ucTimeStamp)
 
 #pragma mark - Buffer decoding
 
-void DecodeMessages()
+void DecodeMessages(void)
 {
     UInt8 i, j;
     UInt8* ucMsgPtr = (UInt8*)&gBufferReceive[0];
@@ -315,7 +315,7 @@ void BulkWriteCompletion(void *refCon, IOReturn result, void *arg0)
 {
     IOUSBInterfaceInterface **interface = (IOUSBInterfaceInterface **) refCon;
 #ifdef DEBUG
-    UInt32 numBytesWritten = (UInt32) arg0;
+    UInt64 numBytesWritten = (UInt64) arg0;
     printf("Asynchronous bulk write complete\n");
 #endif
     if (result != kIOReturnSuccess)
@@ -326,7 +326,7 @@ void BulkWriteCompletion(void *refCon, IOReturn result, void *arg0)
         return;
     }
 #ifdef DEBUG
-    printf("Wrote %ld bytes to bulk endpoint\n", (long)numBytesWritten);
+    printf("Wrote %lld bytes to bulk endpoint\n", (long long)numBytesWritten);
 #endif
 }
 
@@ -349,7 +349,7 @@ void ReadFromBulkPipe(IOUSBInterfaceInterface **interface);
 void BulkReadCompletion(void *refCon, IOReturn result, void *arg0)
 {
     IOUSBInterfaceInterface **interface = (IOUSBInterfaceInterface **) refCon;
-    UInt32 numBytesRead = (UInt32) arg0;
+    UInt64 numBytesRead = (UInt64) arg0;
     
 #ifdef DEBUG
     printf("Asynchronous bulk read complete (%ld)\n", (long)numBytesRead);
