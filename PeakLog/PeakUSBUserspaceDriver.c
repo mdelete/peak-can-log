@@ -156,8 +156,8 @@ void DecodeMessages(void)
         {
             msg->len = ucStatusLen & STLN_DATA_LENGTH;
             if (msg->len > 8) msg->len = 8;
-            msg->rtr = ucStatusLen & STLN_RTR;
-            msg->ext = ucStatusLen & STLN_EXTENDED_ID;
+            msg->rtr = (ucStatusLen & STLN_RTR) > 0;
+            msg->ext = (ucStatusLen & STLN_EXTENDED_ID) > 0;
             msg->err = 0;
             
             if (ucStatusLen & STLN_EXTENDED_ID)
@@ -185,7 +185,7 @@ void DecodeMessages(void)
                 updateTimeStampFromByte(msg, *ucMsgPtr++);
             }
 #ifdef DEBUG
-            printf("Timestamp:%lu Id:0x%02x Len:%d Rtr:%s Ext:%s\n", (unsigned long)msg->ts.tv_sec, (unsigned)msg->canid.ul, msg->len, (msg->rtr) ? "yes" : "no", (msg->ext) ? "yes" : "no");
+            printf("Timestamp:%lu Flags:0x%02x Id:0x%02x Len:%d Rtr:%s Ext:%s\n", (unsigned long)msg->ts.tv_sec, ucStatusLen, (unsigned)msg->canid.ul, msg->len, (msg->rtr) ? "yes" : "no", (msg->ext) ? "yes" : "no");
 #endif
             for(j = 0; j < msg->len; j++)
                 msg->data[j] = *ucMsgPtr++;

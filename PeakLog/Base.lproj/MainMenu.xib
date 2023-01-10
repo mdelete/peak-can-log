@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -622,7 +622,7 @@ CA
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="715" height="389"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1792" height="1097"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1792" height="1095"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="715" height="389"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -630,19 +630,18 @@ CA
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="536">
                         <rect key="frame" x="-1" y="20" width="717" height="370"/>
                         <clipView key="contentView" id="C8t-ze-dI7">
-                            <rect key="frame" x="1" y="0.0" width="715" height="369"/>
+                            <rect key="frame" x="1" y="1" width="715" height="368"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="15" headerView="539" id="537">
-                                    <rect key="frame" x="0.0" y="0.0" width="715" height="346"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="715" height="345"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn editable="NO" width="139.546875" minWidth="40" maxWidth="1000" id="541">
+                                        <tableColumn editable="NO" width="139.5" minWidth="40" maxWidth="1000" id="541">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Timestamp">
-                                                <font key="font" metaFont="toolTip"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
@@ -659,7 +658,6 @@ CA
                                         </tableColumn>
                                         <tableColumn editable="NO" width="100" minWidth="40" maxWidth="1000" id="542">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Flags">
-                                                <font key="font" metaFont="toolTip"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
@@ -673,9 +671,8 @@ CA
                                                 <binding destination="561" name="value" keyPath="arrangedObjects.flags" id="565"/>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn editable="NO" width="76.41796875" minWidth="10" maxWidth="3.4028234663852886e+38" id="555">
+                                        <tableColumn editable="NO" width="76.5" minWidth="10" maxWidth="3.4028234663852886e+38" id="555">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Id">
-                                                <font key="font" metaFont="toolTip"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
@@ -692,7 +689,6 @@ CA
                                         </tableColumn>
                                         <tableColumn editable="NO" width="44" minWidth="10" maxWidth="3.4028234663852886e+38" id="570">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Length">
-                                                <font key="font" metaFont="toolTip"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
@@ -706,9 +702,8 @@ CA
                                                 <binding destination="561" name="value" keyPath="arrangedObjects.length" id="573"/>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn editable="NO" width="267.9375" minWidth="10" maxWidth="3.4028234663852886e+38" id="557">
+                                        <tableColumn editable="NO" width="268" minWidth="10" maxWidth="3.4028234663852886e+38" id="557">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Data">
-                                                <font key="font" metaFont="toolTip"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
@@ -722,9 +717,8 @@ CA
                                                 <binding destination="561" name="value" keyPath="arrangedObjects.data" id="567"/>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn editable="NO" width="69" minWidth="10" maxWidth="3.4028234663852886e+38" id="559">
+                                        <tableColumn editable="NO" width="31" minWidth="10" maxWidth="3.4028234663852886e+38" id="559">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Description">
-                                                <font key="font" metaFont="toolTip"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
@@ -750,15 +744,15 @@ CA
                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <tableHeaderView key="headerView" id="539">
+                        <tableHeaderView key="headerView" wantsLayer="YES" id="539">
                             <rect key="frame" x="0.0" y="0.0" width="715" height="23"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
                     <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="576">
-                        <rect key="frame" x="0.0" y="0.0" width="57" height="21"/>
+                        <rect key="frame" x="-3" y="2" width="105" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="17" id="679"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="U46-Gf-nXk"/>
                         </constraints>
                         <popUpButtonCell key="cell" type="check" title="10kBit" bezelStyle="regularSquare" imagePosition="left" alignment="left" lineBreakMode="truncatingTail" state="on" inset="2" preferredEdge="maxX" selectedItem="579" id="577">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -784,9 +778,6 @@ CA
                     </popUpButton>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="673">
                         <rect key="frame" x="640" y="2" width="57" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="686"/>
-                        </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="No device" id="674">
                             <font key="font" metaFont="toolTip"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -795,25 +786,27 @@ CA
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="536" firstAttribute="top" secondItem="372" secondAttribute="top" constant="-1" id="549"/>
-                    <constraint firstItem="536" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="-1" id="551"/>
-                    <constraint firstAttribute="trailing" secondItem="536" secondAttribute="trailing" constant="-1" id="553"/>
-                    <constraint firstAttribute="bottom" secondItem="536" secondAttribute="bottom" constant="20" symbolic="YES" id="642"/>
-                    <constraint firstAttribute="bottom" secondItem="576" secondAttribute="bottom" constant="2" id="669"/>
-                    <constraint firstItem="576" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="2" id="670"/>
-                    <constraint firstAttribute="trailing" secondItem="673" secondAttribute="trailing" constant="20" symbolic="YES" id="680"/>
-                    <constraint firstItem="673" firstAttribute="baseline" secondItem="576" secondAttribute="baseline" id="687"/>
-                    <constraint firstItem="673" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="372" secondAttribute="leading" constant="20" symbolic="YES" id="dlO-6C-YT0"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="576" secondAttribute="trailing" constant="20" symbolic="YES" id="stV-VS-eA3"/>
+                    <constraint firstItem="673" firstAttribute="top" secondItem="536" secondAttribute="bottom" constant="3" id="Abn-mb-4lP"/>
+                    <constraint firstItem="673" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="576" secondAttribute="trailing" constant="8" symbolic="YES" id="D1n-cL-zgI"/>
+                    <constraint firstAttribute="bottom" secondItem="536" secondAttribute="bottom" constant="20" symbolic="YES" id="HKL-c2-7Vi"/>
+                    <constraint firstItem="576" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="2" id="HNH-mv-iJy"/>
+                    <constraint firstAttribute="trailing" secondItem="673" secondAttribute="trailing" constant="20" symbolic="YES" id="NnK-fb-OfH"/>
+                    <constraint firstItem="536" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="-1" id="O2g-3I-R8z"/>
+                    <constraint firstItem="576" firstAttribute="baseline" secondItem="673" secondAttribute="baseline" id="TrC-Rp-bpc"/>
+                    <constraint firstItem="536" firstAttribute="top" secondItem="372" secondAttribute="top" constant="-1" id="Vee-fC-rDz"/>
+                    <constraint firstItem="576" firstAttribute="top" secondItem="536" secondAttribute="bottom" constant="1" id="aMo-X8-jou"/>
+                    <constraint firstAttribute="trailing" secondItem="536" secondAttribute="trailing" constant="-1" id="irx-VA-5zS"/>
+                    <constraint firstAttribute="bottom" secondItem="576" secondAttribute="bottom" constant="2" id="t6i-O0-tcC"/>
+                    <constraint firstItem="576" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="2" id="zNt-f9-bKP"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="139" y="147"/>
+            <point key="canvasLocation" x="138.5" y="146.5"/>
         </window>
         <window title="Filter" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" animationBehavior="default" id="692" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="139" y="81" width="396" height="365"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1792" height="1097"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1792" height="1095"/>
             <view key="contentView" id="693">
                 <rect key="frame" x="0.0" y="0.0" width="396" height="365"/>
                 <autoresizingMask key="autoresizingMask"/>
