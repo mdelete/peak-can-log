@@ -862,7 +862,7 @@ IOReturn PeakSend(CanMsg* msg)
 //================================================================================================
 //	PeakStop
 //================================================================================================
-IOReturn PeakStop()
+IOReturn PeakStop(void)
 {
     CFRunLoopStop(gRunLoop);
     return kIOReturnSuccess;
@@ -871,7 +871,7 @@ IOReturn PeakStop()
 //================================================================================================
 //	PeakStart
 //================================================================================================
-IOReturn PeakStart()
+IOReturn PeakStart(void)
 {
     CFMutableDictionaryRef 	matchingDict;
     CFRunLoopSourceRef		runLoopSource;

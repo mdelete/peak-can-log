@@ -91,7 +91,7 @@
                                 msg->canid.ul = value & 0x1fffffff; // CAN2.0B 29 bit identfier
                             }
                             else {
-                                msg->canid.ul = value & 0x1ff; // CAN2.0A 11 bit identifier
+                                msg->canid.ul = value & 0x7ff; // CAN2.0A 11 bit identifier
                             }
                         } else {
                             msg->data[i-1] = (UInt8) value & 0xff;

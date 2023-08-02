@@ -58,7 +58,7 @@
 {
 	if(!keypathPopUp)
 	{
-		NSMenu *keypathMenu = [[NSMenu allocWithZone:[NSMenu menuZone]] initWithTitle:@"keypath menu"];
+		NSMenu *keypathMenu = [[NSMenu alloc] initWithTitle:@"keypath menu"];
         
 		NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:@"CanOpen Message Type" action:nil keyEquivalent:@""];
 		[menuItem setRepresentedObject:[NSExpression expressionForKeyPath:@"canid"]];
@@ -77,7 +77,7 @@
 {
 	if(!typePopUp)
 	{
-		NSMenu *typeMenu = [[NSMenu allocWithZone:[NSMenu menuZone]] initWithTitle:@"type menu"];
+		NSMenu *typeMenu = [[NSMenu alloc] initWithTitle:@"type menu"];
         
 		NSMenuItem *nmtItem = [[NSMenuItem alloc] initWithTitle:@"NMT" action:nil keyEquivalent:@""];
 		[nmtItem setEnabled:YES];
